@@ -1,11 +1,9 @@
 window.onload = function() {
         
-  var drawTree =build_file_tree(data);
-  var bBody =document.getElementsByTagName('body')[0]; 
-  bBody.innerHTML=drawTree;
-  addClick();
-  
-
+        var drawTree   = build_file_tree(data);
+        var body       = document.getElementsByTagName('body')[0]; 
+        body.innerHTML = drawTree;
+        addClick();
 
 };
 
@@ -21,6 +19,7 @@ function addClick(){
         if(ulist[i].children.length>1){
           for(let k=1;k<ulist[i].children.length;k++){
                 ulist[i].children[k].style.display="none";
+
           }      
         }
   }
@@ -33,11 +32,13 @@ function addClick(){
                 
                for(let k=1,len=ulist[i].children.length;k<len;k++){
                    if( ulist[i].children[k].style.display=="none"){
-                       
+                
                         ulist[i].children[k].style.display = 'block';
+                       
                    }else{
 
                         ulist[i].children[k].style.display = 'none';
+                     
                    
                    }
 
