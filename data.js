@@ -10,26 +10,43 @@ window.onload = function() {
 };
 
 
-
-
-
 function addClick(){
   
-  //let ulList = document.getElementsByTagName('ul');
-    let ulList = document.getElementsByTagName('body')[0];
+   let ulist = document.getElementsByTagName('ul');
+   
+   
 
+  //一開始將所有項隱藏
+  for(let i = 0;i<ulist.length;i++){
+        if(ulist[i].children.length>1){
+          for(let k=1;k<ulist[i].children.length;k++){
+                ulist[i].children[k].style.display="none";
+          }      
+        }
+  }
+  //加入click事件
+  for(let i = 0;i<ulist.length;i++){
 
-    console.log(ulList.children[0].children);
-  for(let i =0,len=ulList.children.length;i<len;i++){
-     //ulList[i].addEventListener('click',function(){
-        // ulList[i].children.style.display='none';
-           ulList.children[i].children.style.display='none';
-        //ulChild.style.display='none';
-       
-          
-     
+      if(ulist[i].children.length>1){
+         ulist[i].children[0].style.cursor = "pointer";
+         ulist[i].children[0].addEventListener('click',function(){
+                
+               for(let k=1,len=ulist[i].children.length;k<len;k++){
+                   if( ulist[i].children[k].style.display=="none"){
+                       
+                        ulist[i].children[k].style.display = 'block';
+                   }else{
 
-  } 
+                        ulist[i].children[k].style.display = 'none';
+                   
+                   }
+
+                        
+               } 
+         });
+      }
+
+  }
 
 }
 
@@ -53,7 +70,8 @@ function build_file_tree(data) {
                   }
                   tree+=build_file_tree(tempData[key]);
                 }else{
-                   tree+="<li>"+tempData[key]+"</li>";  
+                   //tree+="<li class='i'>"+tempData[key]+"</li>";  
+                   tree+=`<li >${tempData[key]}</li>`;
                 }
 
                 
