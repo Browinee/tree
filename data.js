@@ -1,16 +1,40 @@
 window.onload = function() {
         
   var drawTree =build_file_tree(data);
-  var bBody =document.getElementsByTagName('body')[0];
-   
+  var bBody =document.getElementsByTagName('body')[0]; 
   bBody.innerHTML=drawTree;
+  addClick();
+  
+
+
 };
 
-// var data = [ {name:1},
-//              {name:2,data:[{name:"data 2"}]},
-//              {name:3,data:null},
-//              {name:3,data:[{name:"data 4"},{name:"data 5"}]}
-//            ];
+
+
+
+
+function addClick(){
+  
+  //let ulList = document.getElementsByTagName('ul');
+    let ulList = document.getElementsByTagName('body')[0];
+
+
+    console.log(ulList.children[0].children);
+  for(let i =0,len=ulList.children.length;i<len;i++){
+     //ulList[i].addEventListener('click',function(){
+        // ulList[i].children.style.display='none';
+           ulList.children[i].children.style.display='none';
+        //ulChild.style.display='none';
+       
+          
+     
+
+  } 
+
+}
+
+
+
 
 
 function build_file_tree(data) {
